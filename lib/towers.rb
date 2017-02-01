@@ -7,8 +7,12 @@ class TowersOfHanoi
   end
 
   def move(source, dest)
-    raise 'Invalid tower' unless [source, dest].all? { |el| el.between?(0, 2) }
+    raise 'Invalid tower' unless
+      [source, dest].all? { |el| el.between?(0, 2) }
     raise 'Empty tower' if towers[source].empty?
+    raise 'Cannot put a large disc on top of a small disc' unless
+      source_smaller?(source, dest)
+
     chosen = towers[source].pop
     towers[dest] << chosen
   end
