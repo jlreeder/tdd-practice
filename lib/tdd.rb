@@ -38,24 +38,19 @@ class Array
 
   def stock_picker
     day_ranges = []
+    deltas = []
 
-    low = nil
-    high = nil
-
-    each_index do |idx|
-      # Add curs to days if there's a low and a high, reset curs
-      if low && high
-        day_ranges << [low, high]
-        low, high = nil, nil
-      # Check low
-      elsif low.nil? || self[idx] < low
-        low = idx
-      # Check high
-      elsif high.nil? || self[idx] > high
-        high = idx
+    each_index do |idx1|
+      each_index do |idx2|
+        next if idx1 == idx2
+        next if idx1 > idx2
+        next if self[idx1] > self[idx2]
+        day_ranges << [idx1, idx2]
+        deltas << (self[idx2] - self[idx1])
       end
     end
 
-    day_ranges.first
+    max_delta_idx = deltas.each_with_index.max[1]
+    day_ranges[max_delta_idx]
   end
 end
