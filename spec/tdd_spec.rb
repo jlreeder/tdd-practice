@@ -76,23 +76,35 @@ describe '#Array' do
   describe '#stock_picker' do
     let(:simple_prices) { [0, 1, 5] }
     let(:simple_prices_out) { [0, 2] }
+    subject { simple_prices.stock_picker }
 
-    let(:falling_prices) { [5, 3, 1, 4] }
-    let(:falling_prices_out) { [2, 3] }
+    it 'returns an array' do
+      expect(subject).to be_an(Array)
+    end
 
-    let(:late_rise_prices) { [3, 7, 0, 2, 5] }
-    let(:late_rise_prices_out) { [2, 4] }
-
-    it 'returns an array'
-
-    it 'returns an array of length 2'
+    it 'returns an object of length 2' do
+      expect(subject.length).to be(2)
+    end
 
     context 'when the prices fall' do
-      it 'picks the indexes with the greatest difference'
+      let(:falling_prices) { [5, 3, 1, 4] }
+      let(:falling_prices_out) { [2, 3] }
+      subject { falling_prices.stock_picker }
+
+      it 'picks the indexes with the greatest difference' do
+        expect(subject).to eq(falling_prices_out)
+      end
+
     end
 
     context 'when the prices rise more later' do
-      it 'picks the indexes with the greatest difference'
+      let(:late_rise_prices) { [3, 7, 0, 2, 5] }
+      let(:late_rise_prices_out) { [2, 4] }
+      subject { late_rise_prices.stock_picker }
+
+      it 'picks the indexes with the greatest difference' do
+        expect(subject).to eq(late_rise_prices_out)
+      end
     end
   end
 end
