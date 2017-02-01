@@ -56,7 +56,10 @@ describe 'TowersOfHanoi' do
       end
 
       context 'when an move would put a large disc on a small disc' do
-        it 'raises an error'
+        it 'raises an error' do
+          game.move(0, 1)
+          expect { game.move(0, 1) }.to raise_error(/disc/)
+        end
       end
     end
   end
