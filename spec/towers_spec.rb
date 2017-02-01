@@ -27,7 +27,9 @@ describe 'TowersOfHanoi' do
 
   describe '#won?' do
     context 'when a new game is initialized' do
-      it 'returns false'
+      it 'returns false' do
+        expect(game.won?).to be(false)
+      end
     end
 
     context 'when a game is in progress' do
