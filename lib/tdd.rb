@@ -33,13 +33,7 @@ class Array
     transposed = []
 
     length.times do |i|
-      trans_sub_a = []
-
-      each do |sub_a|
-        trans_sub_a << sub_a[i]
-      end
-
-      transposed << trans_sub_a
+      transposed << map { |sub_a| sub_a[i] }
     end
 
     transposed
