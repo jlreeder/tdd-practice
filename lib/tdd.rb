@@ -35,4 +35,27 @@ class Array
       transposed << map { |sub_a| sub_a[i] }
     end
   end
+
+  def stock_picker
+    day_ranges = []
+
+    low = nil
+    high = nil
+
+    each_index do |idx|
+      # Add curs to days if there's a low and a high, reset curs
+      if low && high
+        day_ranges << [low, high]
+        low, high = nil, nil
+      # Check low
+      elsif low.nil? || self[idx] < low
+        low = idx
+      # Check high
+      elsif high.nil? || self[idx] > high
+        high = idx
+      end
+    end
+
+    day_ranges.first
+  end
 end
