@@ -1,6 +1,6 @@
 class TowersOfHanoi
 
-  attr_reader :towers
+  attr_accessor :towers
 
   def initialize
     @towers = [[3, 2, 1], [], []]

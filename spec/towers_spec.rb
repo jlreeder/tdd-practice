@@ -72,11 +72,18 @@ describe 'TowersOfHanoi' do
     end
 
     context 'when a game is in progress' do
-      it 'returns false'
+      it 'returns false' do
+        game.move(0, 1)
+        expect(game.won?).to be(false)
+      end
     end
 
     context 'when a game is complete' do
-      it 'returns false'
+      it 'returns true' do
+        game.towers = [[], [], [3, 2, 1]]
+        expect(game.won?).to be(true)
+      end
+
     end
   end
 end
