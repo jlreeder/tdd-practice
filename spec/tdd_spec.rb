@@ -52,7 +52,6 @@ describe '#Array' do
         [1, 4, 7],
         [2, 5, 8]
       ]
-
     end
 
     subject { rows.my_transpose }
@@ -71,6 +70,29 @@ describe '#Array' do
 
     it 'returns a transposed array' do
       expect(subject).to eq(cols)
+    end
+  end
+
+  describe '#stock_picker' do
+    let(:simple_prices) { [0, 1, 5] }
+    let(:simple_prices_out) { [0, 2] }
+
+    let(:falling_prices) { [5, 3, 1, 4] }
+    let(:falling_prices_out) { [2, 3] }
+
+    let(:late_rise_prices) { [3, 7, 0, 2, 5] }
+    let(:late_rise_prices_out) { [2, 4] }
+
+    it 'returns an array'
+
+    it 'returns an array of length 2'
+
+    context 'when the prices fall' do
+      it 'picks the indexes with the greatest difference'
+    end
+
+    context 'when the prices rise more later' do
+      it 'picks the indexes with the greatest difference'
     end
   end
 end
