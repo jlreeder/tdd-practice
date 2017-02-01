@@ -70,7 +70,7 @@ describe '#Array' do
     end
 
     it 'returns a transposed array' do
-      expect(subect).to eq(cols)
+      expect(subject).to eq(cols)
     end
   end
 end
