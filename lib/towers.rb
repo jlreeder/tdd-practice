@@ -16,4 +16,12 @@ class TowersOfHanoi
   def won?
     towers == [[], [], [3, 2, 1]]
   end
+
+
+  private
+
+  def source_smaller?(source, dest)
+    return true if towers[dest].empty?
+    towers[source].last < towers[dest].last
+  end
 end
