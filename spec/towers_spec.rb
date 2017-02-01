@@ -50,7 +50,9 @@ describe 'TowersOfHanoi' do
       end
 
       context 'when an empty tower is requested as source' do
-        it 'raises an error'
+        it 'raises an error' do
+          expect { game.move(1, 2) }.to raise_error(/Empty/)
+        end
       end
 
       context 'when an move would put a large disc on a small disc' do
