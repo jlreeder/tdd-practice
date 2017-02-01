@@ -25,5 +25,17 @@ describe 'TowersOfHanoi' do
 
   describe '#move'
 
-  describe '#won?'
+  describe '#won?' do
+    context 'when a new game is initialized' do
+      it 'returns false'
+    end
+
+    context 'when a game is in progress' do
+      it 'returns false'
+    end
+
+    context 'when a game is complete' do
+      it 'returns false'
+    end
+  end
 end

@@ -8,5 +8,7 @@ class TowersOfHanoi
 
   def move; end
 
-  def won?; end
+  def won?
+    towers == [[], [], [3, 2, 1]]
+  end
 end
