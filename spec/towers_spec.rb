@@ -5,7 +5,7 @@ describe 'TowersOfHanoi' do
 
   describe '#initialize' do
     it 'sets up an accessible grid of towers' do
-      expect(subject).to receive(:towers)
+      expect(subject.towers).to be_an(Array)
     end
 
     it 'sets up a grid with three towers' do
@@ -17,7 +17,7 @@ describe 'TowersOfHanoi' do
     end
 
     it 'puts all three discs on the first tower' do
-      expect(subject.towers[0].length).to eq([1, 2, 3])
+      expect(subject.towers[0]).to eq([3, 2, 1])
     end
   end
 
