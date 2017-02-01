@@ -12,4 +12,20 @@ class Array
       uniques
     end
   end
+
+  def two_sum
+    selected_idxs = []
+
+    each_with_index do |el1, idx1|
+      each_with_index do |el2, idx2|
+        next if idx1 == idx2
+        pair = [idx1, idx2]
+        next if selected_idxs.include?(pair.reverse)
+
+        selected_idxs << pair if (el1 + el2).zero?
+      end
+    end
+
+    selected_idxs
+  end
 end
