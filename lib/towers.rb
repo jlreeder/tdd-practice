@@ -7,6 +7,7 @@ class TowersOfHanoi
   end
 
   def move(source, dest)
+    raise 'Invalid tower' unless [source, dest].all? { |el| el.between?(0, 2) }
     chosen = towers[source].pop
     towers[dest] << chosen
   end
