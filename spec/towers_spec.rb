@@ -23,7 +23,25 @@ describe 'TowersOfHanoi' do
     end
   end
 
-  describe '#move'
+  describe '#move' do
+    context 'when a valid move is requested' do
+      it 'removes a disc from the requested tower'
+
+      it 'adds the disc to the requested tower'
+    end
+
+    context 'a non-existent tower is requested' do
+      it 'raises an error'
+    end
+
+    context 'when an empty tower is requested as source' do
+      it 'raises an error'
+    end
+
+    context 'when an move would put a large disc on a small disc' do
+      it 'raises an error'
+    end
+  end
 
   describe '#won?' do
     context 'when a new game is initialized' do
