@@ -25,9 +25,15 @@ describe 'TowersOfHanoi' do
 
   describe '#move' do
     context 'when a valid move is requested' do
-      it 'removes a disc from the requested tower'
+      before(:each) { game.move(0, 1) }
 
-      it 'adds the disc to the requested tower'
+      it 'removes a disc from the requested tower' do
+        expect(game.towers[0]).to_not include(1)
+      end
+
+      it 'adds the disc to the requested tower' do
+        expect(game.towers[1]).to include(1)
+      end
     end
 
     context 'a non-existent tower is requested' do

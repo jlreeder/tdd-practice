@@ -6,7 +6,10 @@ class TowersOfHanoi
     @towers = [[3, 2, 1], [], []]
   end
 
-  def move; end
+  def move(source, dest)
+    chosen = towers[source].pop
+    towers[dest] << chosen
+  end
 
   def won?
     towers == [[], [], [3, 2, 1]]
