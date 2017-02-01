@@ -36,16 +36,26 @@ describe 'TowersOfHanoi' do
       end
     end
 
-    context 'a non-existent tower is requested' do
-      it 'raises an error'
-    end
+    context 'when an invalid move is requested' do
+      context 'when a non-existent tower is requested for source' do
+        it 'raises an error' do
+          expect { game.move(4, 1) }.to raise_error(/tower/)
+        end
+      end
 
-    context 'when an empty tower is requested as source' do
-      it 'raises an error'
-    end
+      context 'when a non-existent tower is requested for destination' do
+        it 'raises an error' do
+          expect { game.move(0, 4) }.to raise_error(/tower/)
+        end
+      end
 
-    context 'when an move would put a large disc on a small disc' do
-      it 'raises an error'
+      context 'when an empty tower is requested as source' do
+        it 'raises an error'
+      end
+
+      context 'when an move would put a large disc on a small disc' do
+        it 'raises an error'
+      end
     end
   end
 
