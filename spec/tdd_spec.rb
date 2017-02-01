@@ -55,12 +55,22 @@ describe '#Array' do
 
     end
 
-    it 'returns an array'
+    subject { rows.my_transpose }
 
-    it 'returns an array of arrays'
+    it 'returns an array' do
+      expect(subject).to be_an(Array)
+    end
 
-    it 'returns an array of the same length as the original'
+    it 'returns an array of arrays' do
+      expect(subject.first).to be_an(Array)
+    end
 
-    it 'returns a transposed array'
+    it 'returns an array of the same length as the original' do
+      expect(subject.length).to eq(rows.length)
+    end
+
+    it 'returns a transposed array' do
+      expect(subect).to eq(cols)
+    end
   end
 end
