@@ -6,6 +6,7 @@ class Array
   end
 
   # Q: Is there a simpler way to phrase this with 'inject' than below?
+  #    Like in #my_transpose below
   def my_uniq
     inject([]) do |uniques, el|
       uniques << el unless uniques.include?(el)
@@ -30,12 +31,8 @@ class Array
   end
 
   def my_transpose
-    transposed = []
-
-    length.times do |i|
+    (0...length).inject([]) do |transposed, i|
       transposed << map { |sub_a| sub_a[i] }
     end
-
-    transposed
   end
 end
